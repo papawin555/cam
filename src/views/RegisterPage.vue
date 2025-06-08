@@ -69,11 +69,12 @@ export default {
   margin: 36px auto 0 auto;
   padding: 32px 24px 24px 24px;
   border-radius: 18px;
-  background: linear-gradient(120deg, #e0eafc 60%, #f9f9f9 100%);
+  background: linear-gradient(120deg, #ffffff 60%, #ffffff 100%);
   box-shadow: 0 4px 24px rgba(79, 140, 255, 0.12);
   text-align: center;
   position: relative;
   overflow: hidden;
+  color: #222; /* เพิ่มสีดำให้กับตัวหนังสือทั้งหมดในหน้า */
 }
 
 h1 {
@@ -89,6 +90,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  color: #222; /* สีดำขณะพิมพ์ */
 }
 
 .form-group {
@@ -111,14 +113,21 @@ select {
   border-radius: 8px;
   font-size: 1rem;
   transition: border 0.2s, box-shadow 0.2s;
-  background: #fff;
+  background: #ffffff;
   outline: none;
+  color: #222; /* สีดำขณะพิมพ์ */
+}
+
+input::placeholder {
+  color: #888;
+  opacity: 1;
 }
 
 input:focus,
 select:focus {
   border: 1.5px solid #4f8cff;
   box-shadow: 0 0 8px #4f8cff33;
+  color: #222; /* สีดำขณะพิมพ์ */
 }
 
 .register-btn {
@@ -143,7 +152,7 @@ select:focus {
 .success-message {
   margin-top: 18px;
   color: #28a745;
-  background: #e6ffe6;
+  background: #ffffff;
   border-radius: 10px;
   padding: 12px 0;
   font-weight: 600;
