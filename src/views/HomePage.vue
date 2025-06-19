@@ -6,6 +6,7 @@
     <p class="subtitle">
       🌟 ค้นหากิจกรรมที่ใช่ และ <span class="passion">เติมเต็มความฝันของคุณ!</span> 🌟
     </p>
+    <VisitorCounter />
     <div class="button-group">
       <router-link to="/info" class="btn info-btn">ดูข้อมูลกิจกรรม</router-link>
       <router-link to="/register" class="btn register-btn">สมัครเข้าร่วมกิจกรรม</router-link>
@@ -20,6 +21,10 @@
 export default {
   name: 'HomeComponent'
 }
+</script>
+
+<script setup>
+import VisitorCounter from '../Components/VisitorCounter.vue'
 </script>
 
 <style scoped>

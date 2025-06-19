@@ -1,111 +1,160 @@
 <template>
-  <div class="home">
-    <h1>
-      <span class="highlight">ยินดีต้อนรับ</span> สู่กิจกรรมที่นักเรียนสนใจ
-    </h1>
-    <p class="subtitle">
-      🌟 ค้นหากิจกรรมที่ใช่ และ <span class="passion">เติมเต็มความฝันของคุณ!</span> 🌟
-    </p>
-    <div class="button-group">
-      <router-link to="/info" class="btn info-btn">ดูข้อมูลกิจกรรม</router-link>
-      <router-link to="/register" class="btn register-btn">สมัครเข้าร่วมกิจกรรม</router-link>
-    </div>
-    <div class="activity-illustration">
-      <img src="https://cdn.pixabay.com/photo/2017/01/31/13/14/people-2029367_1280.png" alt="กิจกรรม" />
-    </div>
-  </div>
+  <ion-page>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>
+          <ion-icon name="sparkles-outline" class="app-icon"></ion-icon>
+          My Ionic App
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding content-bg">
+      <h2 class="welcome-text">
+        <ion-icon name="happy-outline" class="welcome-emoji"></ion-icon>
+        ยินดีต้อนรับ!
+      </h2>
+      <VisitorCounter />
+      <ion-grid class="menu-grid">
+        <ion-row>
+          <ion-col class="menu-item">
+            <ion-icon name="home-outline"></ion-icon>
+            <div>เมนู 1</div>
+          </ion-col>
+          <ion-col class="menu-item">
+            <ion-icon name="person-outline"></ion-icon>
+            <div>เมนู 2</div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="menu-item">
+            <ion-icon name="mail-outline"></ion-icon>
+            <div>เมนู 3</div>
+          </ion-col>
+          <ion-col class="menu-item">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <div>เมนู 4</div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="menu-item">
+            <ion-icon name="settings-outline"></ion-icon>
+            <div>เมนู 5</div>
+          </ion-col>
+          <ion-col class="menu-item">
+            <ion-icon name="star-outline"></ion-icon>
+            <div>เมนู 6</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="button-bottom">
+        <ion-button expand="block" color="primary" shape="round" size="large" class="pulse-btn">
+          <ion-icon slot="start" name="arrow-forward-circle-outline"></ion-icon>
+          ดำเนินการต่อ
+        </ion-button>
+      </div>
+    </ion-content>
+  </ion-page>
 </template>
 
-<script>
-export default {
-  name: 'HomeComponent'
-}
+<script setup>
+ import VisitorCounter from './VisitorCounter.vue';
 </script>
 
 <style scoped>
-.home {
-  text-align: center;
-  margin-top: 50px;
-  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-  min-height: 80vh;
-  border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  padding: 40px 20px;
+.content-bg {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.highlight {
+.app-icon {
+  vertical-align: middle;
+  margin-right: 8px;
   color: #4f8cff;
-  text-shadow: 1px 2px 8px #b3c6ff;
+  font-size: 1.3em;
 }
 
-.subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 32px;
-  color: #444;
-}
-
-.passion {
-  color: #ff7e5f;
-  font-weight: bold;
-}
-
-.button-group {
-  margin-bottom: 32px;
-}
-
-.btn {
-  display: inline-block;
-  margin: 0 12px;
-  padding: 12px 32px;
-  border-radius: 30px;
-  font-size: 1rem;
+.welcome-text {
+  text-align: center;
+  margin-bottom: 28px;
   font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.12);
+  color: #2d3a4a;
+  letter-spacing: 1.2px;
+  font-size: 1.4em;
+  position: relative;
+  z-index: 1;
 }
 
-.info-btn {
-  background: linear-gradient(90deg, #4f8cff 0%, #38b6ff 100%);
-  color: #fff;
+.welcome-emoji {
+  vertical-align: middle;
+  margin-right: 8px;
+  color: #4f8cff;
+  font-size: 1.2em;
 }
 
-.info-btn:hover {
-  background: linear-gradient(90deg, #38b6ff 0%, #4f8cff 100%);
-  color: #fff;
+.menu-grid {
+  margin-bottom: 90px;
+  position: relative;
+  z-index: 1;
 }
 
-.register-btn {
-  background: linear-gradient(90deg, #ff7e5f 0%, #feb47b 100%);
-  color: #fff;
+.menu-item {
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(60, 60, 60, 0.06);
+  margin: 10px 6px;
+  padding: 18px 0 10px 0;
+  text-align: center;
+  font-size: 1.08em;
+  color: #2d3a4a;
+  background: #f8fafc;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 500;
+  border: 1.5px solid #e3e8ee;
+}
+.menu-item ion-icon {
+  font-size: 2em;
+  margin-bottom: 6px;
+  color: #4f8cff;
+  transition: color 0.2s;
+}
+.menu-item:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(79,140,255,0.10);
+  background: #eaf1fb;
+  border-color: #b6d0f7;
+}
+.menu-item:hover ion-icon {
+  color: #2563eb;
 }
 
-.register-btn:hover {
-  background: linear-gradient(90deg, #feb47b 0%, #ff7e5f 100%);
-  color: #fff;
+.button-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  padding: 0 16px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
 }
 
-.activity-illustration {
-  margin-top: 32px;
+.pulse-btn {
+  animation: pulse 1.8s infinite;
+  font-size: 1.08em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 18px #4f8cff22;
 }
 
-.activity-illustration img {
-  max-width: 320px;
-  width: 100%;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(255, 126, 95, 0.12);
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-18px); }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #4f8cff33; }
+  70% { box-shadow: 0 0 0 12px #4f8cff11; }
+  100% { box-shadow: 0 0 0 0 #4f8cff00; }
 }
 </style>
