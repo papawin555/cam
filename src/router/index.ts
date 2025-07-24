@@ -3,6 +3,7 @@ import HomePage from '../views/HomePage.vue';
 import InfoPage from '../views/InfoPage.vue';
 import ContactPage from '../views/ContactPage.vue';
 import RegisterPage from '../views/RegisterPage.vue';
+import UserListPage from '../views/UserListPage.vue';
 
 const routes = [
   {
@@ -24,7 +25,10 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: RegisterPage
-  }
+  },
+  {
+    path: '/users', name: 'Users', component: UserListPage 
+  },
 ];
 
 const router = createRouter({

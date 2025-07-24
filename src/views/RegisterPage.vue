@@ -1,17 +1,19 @@
 <template>
   <div class="register-page">
-    <h1>สมัครเข้าร่วมกิจกรรม</h1>
+    <h1>
+      <span class="highlight">สมัครเข้าร่วมกิจกรรม</span>
+    </h1>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
-        <label for="name">ชื่อ-นามสกุล:</label>
+        <label for="name"><i class="fas fa-user"></i> ชื่อ-นามสกุล:</label>
         <input type="text" id="name" v-model="formData.name" required placeholder="กรอกชื่อ-นามสกุลของคุณ" />
       </div>
       <div class="form-group">
-        <label for="email">อีเมล:</label>
+        <label for="email"><i class="fas fa-envelope"></i> อีเมล:</label>
         <input type="email" id="email" v-model="formData.email" required placeholder="example@email.com" />
       </div>
       <div class="form-group">
-        <label for="activity">เลือกกิจกรรม:</label>
+        <label for="activity"><i class="fas fa-list"></i> เลือกกิจกรรม:</label>
         <select id="activity" v-model="formData.activity" required>
           <option value="" disabled>-- กรุณาเลือกกิจกรรม --</option>
           <option value="sports">⚽ กีฬา</option>
@@ -64,62 +66,78 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
 .register-page {
   max-width: 420px;
-  margin: 36px auto 0 auto;
-  padding: 32px 24px 24px 24px;
-  border-radius: 18px;
-  background: linear-gradient(120deg, #ffffff 60%, #ffffff 100%);
-  box-shadow: 0 4px 24px rgba(79, 140, 255, 0.12);
+  margin: 48px auto 0 auto;
+  padding: 36px 28px 28px 28px;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #e3eefd 60%, #f5f8fd 100%);
+  box-shadow: 0 8px 32px rgba(79, 140, 255, 0.14);
   text-align: center;
   position: relative;
   overflow: hidden;
-  color: #222; /* เพิ่มสีดำให้กับตัวหนังสือทั้งหมดในหน้า */
+  color: #222;
 }
 
 h1 {
   color: #4f8cff;
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 18px;
   font-weight: bold;
   letter-spacing: 1px;
   text-shadow: 1px 2px 8px #b3c6ff33;
 }
 
+.highlight {
+  background: linear-gradient(90deg, #4f8cff 60%, #6ec1e4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 form {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  color: #222; /* สีดำขณะพิมพ์ */
+  color: #222;
+  margin-bottom: 8px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 
 label {
   margin-bottom: 6px;
-  color: #333;
+  color: #2563eb;
   font-weight: 500;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 input,
 select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px 14px;
   border: 1.5px solid #b3c6ff;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 1rem;
   transition: border 0.2s, box-shadow 0.2s;
-  background: #ffffff;
+  background: #f8fafc;
   outline: none;
-  color: #222; /* สีดำขณะพิมพ์ */
+  color: #222;
+  box-shadow: 0 2px 8px #b3c6ff11;
 }
 
 input::placeholder {
-  color: #888;
+  color: #8bb3ff;
   opacity: 1;
 }
 
@@ -127,21 +145,22 @@ input:focus,
 select:focus {
   border: 1.5px solid #4f8cff;
   box-shadow: 0 0 8px #4f8cff33;
-  color: #222; /* สีดำขณะพิมพ์ */
+  color: #222;
 }
 
 .register-btn {
-  padding: 12px 0;
+  padding: 13px 0;
   background: linear-gradient(90deg, #4f8cff 0%, #38b6ff 100%);
   color: #fff;
   border: none;
   border-radius: 30px;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   cursor: pointer;
   margin-top: 8px;
-  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.12);
+  box-shadow: 0 2px 12px rgba(79, 140, 255, 0.14);
   transition: background 0.3s, transform 0.2s;
+  letter-spacing: 1px;
 }
 
 .register-btn:hover {
@@ -179,7 +198,7 @@ select:focus {
 }
 
 .register-illustration img {
-  max-width: 220px;
+  max-width: 180px;
   width: 100%;
   border-radius: 14px;
   box-shadow: 0 4px 24px rgba(79, 140, 255, 0.10);

@@ -1,160 +1,140 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>
-          <ion-icon name="sparkles-outline" class="app-icon"></ion-icon>
-          My Ionic App
-        </ion-title>
-      </ion-toolbar>
-    </ion-header>
+  <div class="home">
+    <h1>
+      <span class="highlight">ยินดีต้อนรับ</span> สู่กิจกรรมที่นักเรียนสนใจ
+    </h1>
+    <p class="subtitle">
+      🌟 ค้นหากิจกรรมที่ใช่ และ <span class="passion">เติมเต็มความฝันของคุณ!</span> 🌟
+    </p>
+    <VisitorCounter />
 
-    <ion-content class="ion-padding content-bg">
-      <h2 class="welcome-text">
-        <ion-icon name="happy-outline" class="welcome-emoji"></ion-icon>
-        ยินดีต้อนรับ!
-      </h2>
-      <VisitorCounter />
-      <ion-grid class="menu-grid">
-        <ion-row>
-          <ion-col class="menu-item">
-            <ion-icon name="home-outline"></ion-icon>
-            <div>เมนู 1</div>
-          </ion-col>
-          <ion-col class="menu-item">
-            <ion-icon name="person-outline"></ion-icon>
-            <div>เมนู 2</div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col class="menu-item">
-            <ion-icon name="mail-outline"></ion-icon>
-            <div>เมนู 3</div>
-          </ion-col>
-          <ion-col class="menu-item">
-            <ion-icon name="information-circle-outline"></ion-icon>
-            <div>เมนู 4</div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col class="menu-item">
-            <ion-icon name="settings-outline"></ion-icon>
-            <div>เมนู 5</div>
-          </ion-col>
-          <ion-col class="menu-item">
-            <ion-icon name="star-outline"></ion-icon>
-            <div>เมนู 6</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <div class="button-bottom">
-        <ion-button expand="block" color="primary" shape="round" size="large" class="pulse-btn">
-          <ion-icon slot="start" name="arrow-forward-circle-outline"></ion-icon>
-          ดำเนินการต่อ
-        </ion-button>
-      </div>
-    </ion-content>
-  </ion-page>
+    <!-- ปุ่มเมนูทั้งหมดจัดเรียงแบบ grid -->
+    <div class="menu-grid">
+      <router-link to="/info" class="menu-btn blue">
+        <i class="fas fa-info-circle"></i>
+        ข้อมูลกิจกรรม
+      </router-link>
+      <router-link to="/register" class="menu-btn orange">
+        <i class="fas fa-edit"></i>
+        สมัครเข้าร่วมกิจกรรม
+      </router-link>
+      <router-link to="/contact" class="menu-btn green">
+        <i class="fas fa-phone"></i>
+        ติดต่อสอบถาม
+      </router-link>
+      <button class="menu-btn gray" @click="alert('Coming soon!')">
+        <i class="fas fa-star"></i>
+        กิจกรรมแนะนำ
+      </button>
+      <button class="menu-btn purple" @click="alert('Coming soon!')">
+        <i class="fas fa-calendar-alt"></i>
+        ปฏิทินกิจกรรม
+      </button>
+      <button class="menu-btn pink" @click="alert('Coming soon!')">
+        <i class="fas fa-heart"></i>
+        กิจกรรมที่ชอบ
+      </button>
+      <router-link to="/images" class="menu-btn violet">
+        <i class="fas fa-images"></i>
+        ภาพกิจกรรม
+      </router-link>
+    </div>
+
+    <!-- ลบส่วนภาพกิจกรรมที่ผ่านมาออกตามคำขอ -->
+
+    <div class="activity-illustration">
+      <img src="https://cdn.pixabay.com/photo/2017/01/31/13/14/people-2029367_1280.png" alt="กิจกรรม" />
+    </div>
+  </div>
 </template>
 
-<script setup>
- import VisitorCounter from './VisitorCounter.vue';
+<script setup lang="ts">
+import VisitorCounter from '../Components/VisitorCounter.vue'
+const alert = (msg: string) => window.alert(msg)
 </script>
 
 <style scoped>
-.content-bg {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-}
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-.app-icon {
-  vertical-align: middle;
-  margin-right: 8px;
-  color: #4f8cff;
-  font-size: 1.3em;
-}
-
-.welcome-text {
+.home {
   text-align: center;
-  margin-bottom: 28px;
-  font-weight: 600;
-  color: #2d3a4a;
-  letter-spacing: 1.2px;
-  font-size: 1.4em;
-  position: relative;
-  z-index: 1;
+  margin-top: 50px;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  min-height: 80vh;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  padding: 40px 20px;
 }
 
-.welcome-emoji {
-  vertical-align: middle;
-  margin-right: 8px;
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.highlight {
   color: #4f8cff;
+  text-shadow: 1px 2px 8px #b3c6ff;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+}
+
+.passion {
+  color: #ff7e5f;
+  font-weight: bold;
+}
+
+/* ปุ่มเมนูแบบ grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin: 32px 0 0 0;
+  justify-items: center;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 180px;
+  justify-content: center;
+  padding: 14px 0;
+  border-radius: 18px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #b3c6ff22;
+  transition: background 0.18s, transform 0.15s;
+  text-decoration: none;
+  color: #fff;
+  background: #4f8cff;
+  margin: 0;
+}
+.menu-btn i {
   font-size: 1.2em;
 }
-
-.menu-grid {
-  margin-bottom: 90px;
-  position: relative;
-  z-index: 1;
+.menu-btn.blue { background: linear-gradient(90deg, #4f8cff 60%, #6ec1e4 100%);}
+.menu-btn.orange { background: linear-gradient(90deg, #ffb347 60%, #ff7e5f 100%);}
+.menu-btn.green { background: linear-gradient(90deg, #43e97b 60%, #38f9d7 100%);}
+.menu-btn.gray { background: linear-gradient(90deg, #bdbdbd 60%, #757f9a 100%);}
+.menu-btn.purple { background: linear-gradient(90deg, #a18cd1 60%, #fbc2eb 100%);}
+.menu-btn.pink { background: linear-gradient(90deg, #f7971e 60%, #ffd200 100%);}
+.menu-btn.violet { background: linear-gradient(90deg, #a18cd1 60%, #fbc2eb 100%);}
+.menu-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  filter: brightness(1.08);
 }
 
-.menu-item {
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(60, 60, 60, 0.06);
-  margin: 10px 6px;
-  padding: 18px 0 10px 0;
-  text-align: center;
-  font-size: 1.08em;
-  color: #2d3a4a;
-  background: #f8fafc;
-  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-weight: 500;
-  border: 1.5px solid #e3e8ee;
+.activity-illustration {
+  margin-top: 32px;
 }
-.menu-item ion-icon {
-  font-size: 2em;
-  margin-bottom: 6px;
-  color: #4f8cff;
-  transition: color 0.2s;
-}
-.menu-item:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 4px 16px rgba(79,140,255,0.10);
-  background: #eaf1fb;
-  border-color: #b6d0f7;
-}
-.menu-item:hover ion-icon {
-  color: #2563eb;
-}
-
-.button-bottom {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 16px;
-  padding: 0 16px;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-}
-
-.pulse-btn {
-  animation: pulse 1.8s infinite;
-  font-size: 1.08em;
-  font-weight: 600;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 18px #4f8cff22;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 #4f8cff33; }
-  70% { box-shadow: 0 0 0 12px #4f8cff11; }
-  100% { box-shadow: 0 0 0 0 #4f8cff00; }
+.activity-illustration img {
+  width: 120px;
+  filter: drop-shadow(0 4px 18px #b3c6ff55);
 }
 </style>
