@@ -22,6 +22,9 @@
         <button class="navbar-btn pink" @click="alert('Coming soon!')">
           <i class="fas fa-heart"></i> กิจกรรมที่ชอบ
         </button>
+        <button class="navbar-btn camera" @click="$router.push('/camera')">
+          <i class="fas fa-camera"></i> เปิดกล้อง
+        </button>
         <router-link to="/users" class="navbar-btn white">
           รายชื่อผู้ใช้
         </router-link>
@@ -37,7 +40,7 @@
     </p>
     <VisitorCounter />
     <div class="activity-illustration">
-      <img src="..." alt="กิจกรรม" />
+      <img src="https://via.placeholder.com/150" alt="กิจกรรม" />
     </div>
   </div>
 </template>
@@ -144,5 +147,13 @@ h1 {
 .activity-illustration img {
   width: 120px;
   filter: drop-shadow(0 4px 18px #b3c6ff55);
+}
+.navbar-btn.camera {
+  background: linear-gradient(90deg, #00c6ff 60%, #0072ff 100%);
+  color: #fff;
+}
+.navbar-btn.camera:hover {
+  background: linear-gradient(90deg, #0072ff 60%, #00c6ff 100%);
+  color: #fff;
 }
 </style>
